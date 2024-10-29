@@ -1,0 +1,15 @@
+services:
+  adguardhome-sync:
+    image: lscr.io/linuxserver/adguardhome-sync:latest
+    container_name: adguardhome-sync
+    environment:
+      - PUID
+      - PGID
+      - TZ
+      - APP_DATA_DIRECTORY
+      - ADGUARDHOME_SYNC_WEB_PORT
+    volumes:
+      - ${APP_DATA_DIRECTORY}/adguardhome-sync/config:/config
+    ports:
+      - ${ADGUARDHOME_SYNC_WEB_PORT}:8080
+    restart: unless-stopped

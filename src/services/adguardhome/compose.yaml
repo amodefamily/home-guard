@@ -1,0 +1,9 @@
+services:
+  adguardhome:
+    container_name: adguardhome
+    image: adguard/adguardhome
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - $APP_DATA_DIRECTORY/adguardhome/conf:/opt/adguardhome/conf:rw
+      - $APP_DATA_DIRECTORY/adguardhome/work:/opt/adguardhome/work:rw

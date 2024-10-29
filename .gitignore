@@ -1,0 +1,4 @@
+appdata/
+src/.secrets/
+!src/.secrets/README.md
+src/services/ddns-updater/config

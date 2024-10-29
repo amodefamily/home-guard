@@ -1,0 +1,15 @@
+services:
+  ddns-updater:
+    image: qmcgaw/ddns-updater
+    container_name: ddns-updater
+    network_mode: bridge
+    ports:
+      - 8000:8000/tcp
+    volumes:
+      - ${APP_DATA_DIRECTORY}/ddns_updater/:/updater/data:rw
+      - .${CONFIG_FILEPATH}:${CONFIG_FILEPATH}:ro
+    environment:
+      - APP_DATA_DIRECTORY
+      - TZ
+      - CONFIG_FILEPATH
+    restart: unless-stopped
